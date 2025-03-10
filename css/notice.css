@@ -1,0 +1,510 @@
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  /*header*/
+
+  header {
+    letter-spacing: -1px;
+    box-sizing: border-box;
+    padding: 2vw 3vw;
+    width: 100%;
+  }
+
+  .head > li:nth-child(4) {
+    display: none;
+  }
+
+  .head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .subMenu {
+    font-size: 0.8vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+  }
+
+  .subMenu li a {
+    color: #555;
+    transition: 0.3s;
+  }
+
+  .subMenu li:hover a {
+    font-weight: 500;
+    color: #006eff;
+  }
+
+  header img {
+    width: 8vw;
+  }
+
+  header h2 {
+    font-weight: 900;
+    font-size: 2vw;
+    color: #006eff;
+  }
+
+  /*footer*/
+
+  footer {
+    color: #fff;
+    padding: 3vw;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #11005c;
+  }
+
+  footer img {
+    width: 7vw;
+  }
+
+  .fotSub {
+    padding: 2vw;
+    margin-bottom: 2vw;
+    border-bottom: 2px solid #006eff;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+  }
+
+  .fotSub h5 {
+    font-size: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .fotSub p {
+    font-size: 0.8vw;
+    cursor: pointer;
+    opacity: 0.5;
+    text-align: left;
+    line-height: 1.5vw;
+  }
+
+  .fotSub2 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fotSub2 h3 {
+    font-size: 0.8vw;
+    margin-bottom: 1vw;
+  }
+
+  .fotSub2 li:nth-child(1) p {
+    font-size: 0.8vw;
+  }
+
+  .fotSub2 li:nth-child(2) {
+    font-size: 0.6vw;
+    text-align: right;
+  }
+
+  .fotSub2 li:nth-child(2) p {
+    line-height: 1vw;
+    cursor: pointer;
+  }
+}
+
+/* 공지사항 페이지 전용 스타일 */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+#container {
+  padding: 20px;
+}
+
+.notice-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.notice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #006eff;
+  padding-bottom: 15px;
+}
+
+.notice-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #006eff;
+}
+
+.notice-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.notice-search input {
+  width: 250px;
+  padding: 10px 40px 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.notice-search .fa-search {
+  position: absolute;
+  right: 15px;
+  color: #888;
+}
+
+.notice-list {
+  margin-bottom: 30px;
+}
+
+.notice-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.notice-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.notice-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notice-tag {
+  margin-right: 10px;
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 0.7rem;
+}
+
+.notice-tag.new {
+  background-color: #006eff;
+  color: white;
+}
+
+.notice-category {
+  margin-right: 10px;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.notice-date {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.notice-item-content h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.notice-item-content p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.notice-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice-pagination ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.notice-pagination li {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.notice-pagination li.active {
+  background-color: #006eff;
+  color: white;
+  border-color: #006eff;
+}
+
+.notice-pagination li:hover {
+  background-color: #f0f0f0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .notice-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notice-search {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .notice-search input {
+    width: 100%;
+  }
+
+  .notice-section {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* 헤더 */
+  header {
+    padding: 3vw 4vw;
+    position: relative;
+    z-index: 10;
+  }
+
+  .head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .head > li:nth-child(4) {
+    display: none;
+  }
+
+  header img {
+    width: 12vw;
+  }
+
+  header h2 {
+    font-size: 3vw;
+    font-weight: 900;
+    color: #006eff;
+  }
+
+  .subMenu {
+    font-size: 1.5vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+  }
+
+  .subMenu li a {
+    color: #555;
+    transition: 0.3s;
+  }
+
+  .subMenu li:hover a {
+    font-weight: 500;
+    color: #006eff;
+  }
+  /* 푸터 */
+  footer {
+    padding: 8vw 4vw; /* 패딩 증가 */
+    background-color: #11005c;
+    color: #fff;
+  }
+
+  footer img {
+    width: 16vw; /* 크기 조정 */
+  }
+
+  .fotSub {
+    padding: 5vw 0; /* 패딩 증가 */
+    margin: 5vw 0; /* 여백 증가 */
+    border-bottom: 2px solid #006eff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7vw; /* 간격 증가 */
+    justify-content: flex-start;
+  }
+
+  .fotSub h5 {
+    font-size: 2.2vw; /* 폰트 크기 증가 */
+    margin-bottom: 3vw; /* 여백 증가 */
+    color: #fff;
+  }
+
+  .fotSub p {
+    font-size: 1.8vw; /* 폰트 크기 증가 */
+    line-height: 3.2vw; /* 줄 간격 증가 */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+
+  .fotSub p:hover {
+    opacity: 1;
+  }
+
+  .fotSub2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw; /* 간격 증가 */
+  }
+
+  .fotSub2 h3 {
+    font-size: 2.2vw; /* 폰트 크기 증가 */
+    margin-bottom: 2.5vw; /* 여백 증가 */
+  }
+
+  .fotSub2 li:nth-child(1) p {
+    font-size: 1.7vw; /* 폰트 크기 증가 */
+    line-height: 2.8vw; /* 줄 간격 증가 */
+    opacity: 0.7;
+  }
+
+  .fotSub2 li:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5vw; /* 간격 증가 */
+    margin-top: 2vw; /* 상단 여백 추가 */
+  }
+
+  .fotSub2 li:nth-child(2) p {
+    font-size: 1.7vw; /* 폰트 크기 증가 */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    margin-right: 2.5vw; /* 여백 증가 */
+  }
+
+  .fotSub2 li:nth-child(2) p:hover {
+    opacity: 1;
+  }
+
+  /* 모바일 메뉴 스타일 */
+  .mobile-menu {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; /* 그림자 강화 */
+    border-radius: 0 0 20px 20px; /* 하단 모서리 둥글게 */
+  }
+}
+
+@media (max-width: 768px) {
+  /* 헤더 */
+  header {
+    padding: 4vw 5vw;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4vw;
+  }
+
+  header img {
+    width: 20vw;
+  }
+
+  header h2 {
+    display: none;
+    font-size: 5vw;
+  }
+
+  header i {
+    font-size: 5vw;
+  }
+
+  .subMenu {
+    display: none;
+    font-size: 3vw;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+
+  /* 푸터 */
+  footer {
+    color: #fff;
+    padding: 8vw 5vw;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #11005c;
+  }
+
+  footer img {
+    width: 20vw;
+  }
+
+  .fotSub {
+    padding: 10vw 0;
+    margin-bottom: 2vw;
+    border-bottom: 2px solid #006eff;
+    display: flex;
+    flex-direction: column;
+    gap: 8vw;
+    justify-content: center;
+  }
+
+  .fotSub h5 {
+    font-size: 4vw;
+    margin-bottom: 4vw;
+  }
+
+  .fotSub p {
+    font-size: 3vw;
+    cursor: pointer;
+    opacity: 0.5;
+    text-align: left;
+    line-height: 5vw;
+  }
+
+  .fotSub2 {
+    padding-top: 10vw;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .fotSub2 li {
+    width: 100%;
+    margin-bottom: 5vw;
+  }
+
+  .fotSub2 h3 {
+    font-size: 3vw;
+    margin-bottom: 2vw;
+  }
+
+  .fotSub2 li:nth-child(1) p {
+    font-size: 3vw;
+    line-height: 5vw;
+  }
+
+  .fotSub2 li:nth-child(2) {
+    font-size: 2.5vw;
+    text-align: left;
+  }
+
+  .fotSub2 li:nth-child(2) p {
+    line-height: 4vw;
+    cursor: pointer;
+  }
+}

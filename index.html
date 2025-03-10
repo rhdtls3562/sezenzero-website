@@ -34,9 +34,9 @@
         </li>
         <li>
           <ul class="subMenu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Notice</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notice.html">Notice</a></li>
             <li><a href="#">Customer Service</a></li>
           </ul>
         </li>
@@ -359,7 +359,14 @@
             width: "100%",
           });
 
-          const menuItems = ["Home", "About", "Services", "Contact"];
+          // 모바일 메뉴 아이템을 헤더의 메뉴와 일치시키고 페이지 연결
+          const menuItems = [
+            { name: "Home", url: "index.html" },
+            { name: "About", url: "about.html" }, // 실제 About 페이지 URL로 교체 필요
+            { name: "Notice", url: "notice.html" }, // 실제 Notice 페이지 URL로 교체 필요
+            { name: "Customer Service", url: "#" }, // 실제 Customer Service 페이지 URL로 교체 필요
+          ];
+
           menuItems.forEach((item, index) => {
             const li = document.createElement("li");
             const marginValue = isTablet() ? "20px 0" : "15px 0";
@@ -387,8 +394,8 @@
               transition: "color 0.2s ease-in-out",
             });
 
-            link.textContent = item;
-            link.href = "#";
+            link.textContent = item.name;
+            link.href = item.url;
 
             // 호버 효과
             link.addEventListener("mouseover", () => {
