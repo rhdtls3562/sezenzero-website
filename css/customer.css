@@ -1,0 +1,808 @@
+/* Toss 스타일 고객센터 페이지 */
+:root {
+  --primary-color: #006eff;
+  --text-color: #333333;
+  --light-gray: #f5f6fa;
+  --medium-gray: #e6e8ef;
+  --dark-gray: #8b95a1;
+  --white: #ffffff;
+  --border-radius: 16px;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* 태블릿 화면에서 햄버거 메뉴 숨기기 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .head > li:nth-child(4) {
+    display: none !important; /* !important로 우선순위 높임 */
+  }
+
+  /* 태블릿에서는 subMenu 보이게 설정 */
+  .subMenu {
+    display: flex !important;
+  }
+}
+
+/* 헤더 스타일 */
+@media (min-width: 1024px) {
+  /*header*/
+  header {
+    letter-spacing: -1px;
+    box-sizing: border-box;
+    padding: 2vw 3vw;
+    width: 100%;
+    background-color: var(--white);
+    z-index: 100;
+    position: sticky;
+    top: 0;
+  }
+
+  .head > li:nth-child(4) {
+    display: none;
+  }
+
+  .head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .subMenu {
+    font-size: 0.8vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+  }
+
+  .subMenu li a {
+    color: #555;
+    transition: 0.3s;
+  }
+
+  .subMenu li:hover a {
+    font-weight: 500;
+    color: #006eff;
+  }
+
+  header img {
+    width: 8vw;
+  }
+
+  header h2 {
+    font-weight: 900;
+    font-size: 2vw;
+    color: #006eff;
+  }
+}
+
+/* 고객센터 컨테이너 */
+.cs-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* 고객센터 헤더 */
+.cs-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cs-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 16px;
+}
+
+.cs-header p {
+  font-size: 18px;
+  color: var(--dark-gray);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 검색 영역 */
+.cs-search-box {
+  display: flex;
+  max-width: 700px;
+  position: relative;
+  margin: 40px auto;
+}
+
+.cs-search-box input {
+  width: 100%;
+  height: 60px;
+  padding: 0 24px 0 60px;
+  border-radius: 12px;
+  border: 1px solid var(--medium-gray);
+  background-color: var(--white);
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.cs-search-box input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 110, 255, 0.1);
+}
+
+.cs-search-box i {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-gray);
+  font-size: 20px;
+}
+
+/* 고객센터 카테고리 */
+.cs-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.cs-category-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 32px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cs-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cs-category-card i {
+  font-size: 32px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.cs-category-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.cs-category-card p {
+  font-size: 15px;
+  color: var(--dark-gray);
+  margin-bottom: 16px;
+}
+
+.cs-category-card .link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+
+.cs-category-card .link i {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-bottom: 0;
+}
+
+/* FAQ 섹션 */
+.cs-faq {
+  margin-bottom: 48px;
+}
+
+.cs-section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cs-section-title a {
+  font-size: 16px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.cs-faq-list {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.cs-faq-item {
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.cs-faq-item:last-child {
+  border-bottom: none;
+}
+
+.cs-faq-question {
+  padding: 20px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.cs-faq-question:hover {
+  background-color: rgba(0, 110, 255, 0.03);
+}
+
+.cs-faq-question i {
+  font-size: 14px;
+  color: var(--dark-gray);
+  transition: transform 0.3s ease;
+}
+
+.cs-faq-question.active i {
+  transform: rotate(180deg);
+  color: var(--primary-color);
+}
+
+.cs-faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background-color: #f9f9fb;
+}
+
+.cs-faq-answer.active {
+  padding: 20px 24px;
+  max-height: 500px; /* 충분히 큰 값으로 설정 */
+}
+
+.cs-faq-answer p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* 문의하기 섹션 */
+.cs-contact {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cs-contact-info h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cs-contact-info p {
+  color: var(--dark-gray);
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.cs-contact-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.cs-contact-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-contact-button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.cs-contact-button.primary:hover {
+  background-color: #0055cc;
+}
+
+.cs-contact-button.secondary {
+  background-color: var(--white);
+  color: var(--text-color);
+  border: 1px solid var(--medium-gray);
+}
+
+.cs-contact-button.secondary:hover {
+  background-color: var(--light-gray);
+}
+
+.cs-contact-button i {
+  margin-right: 8px;
+}
+
+.cs-contact-image {
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-contact-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* 푸터 스타일 */
+@media (min-width: 1024px) {
+  /*footer*/
+  footer {
+    color: #fff;
+    padding: 3vw;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #11005c;
+  }
+
+  footer img {
+    width: 7vw;
+  }
+
+  .fotSub {
+    padding: 2vw;
+    margin-bottom: 2vw;
+    border-bottom: 2px solid #006eff;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+  }
+
+  .fotSub h5 {
+    font-size: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .fotSub p {
+    font-size: 0.8vw;
+    cursor: pointer;
+    opacity: 0.5;
+    text-align: left;
+    line-height: 1.5vw;
+  }
+
+  .fotSub2 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fotSub2 h3 {
+    font-size: 0.8vw;
+    margin-bottom: 1vw;
+  }
+
+  .fotSub2 li:nth-child(1) p {
+    font-size: 0.8vw;
+  }
+
+  .fotSub2 li:nth-child(2) {
+    font-size: 0.6vw;
+    text-align: right;
+  }
+
+  .fotSub2 li:nth-child(2) p {
+    line-height: 1vw;
+    cursor: pointer;
+  }
+}
+
+/* 태블릿 반응형 스타일 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* 헤더 */
+  header {
+    padding: 3vw 4vw;
+    position: relative;
+    z-index: 10;
+  }
+
+  .head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header img {
+    width: 12vw;
+  }
+
+  header h2 {
+    font-size: 3vw;
+    font-weight: 900;
+    color: #006eff;
+  }
+
+  .subMenu {
+    font-size: 1.5vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+  }
+
+  .subMenu li a {
+    color: #555;
+    transition: 0.3s;
+  }
+
+  .subMenu li:hover a {
+    font-weight: 500;
+    color: #006eff;
+  }
+
+  /* 고객센터 반응형 */
+  .cs-header h1 {
+    font-size: 30px;
+  }
+
+  .cs-header p {
+    font-size: 16px;
+  }
+
+  .cs-categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cs-contact {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cs-contact-info {
+    margin-bottom: 24px;
+  }
+
+  .cs-contact-image {
+    display: none;
+  }
+
+  /* 푸터 */
+  footer {
+    padding: 8vw 4vw; /* 패딩 증가 */
+    background-color: #11005c;
+    color: #fff;
+  }
+
+  footer img {
+    width: 16vw; /* 크기 조정 */
+  }
+
+  .fotSub {
+    padding: 5vw 0; /* 패딩 증가 */
+    margin: 5vw 0; /* 여백 증가 */
+    border-bottom: 2px solid #006eff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7vw; /* 간격 증가 */
+    justify-content: flex-start;
+  }
+
+  .fotSub h5 {
+    font-size: 2.2vw; /* 폰트 크기 증가 */
+    margin-bottom: 3vw; /* 여백 증가 */
+    color: #fff;
+  }
+
+  .fotSub p {
+    font-size: 1.8vw; /* 폰트 크기 증가 */
+    line-height: 3.2vw; /* 줄 간격 증가 */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+
+  .fotSub p:hover {
+    opacity: 1;
+  }
+
+  .fotSub2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw; /* 간격 증가 */
+  }
+
+  .fotSub2 h3 {
+    font-size: 2.2vw; /* 폰트 크기 증가 */
+    margin-bottom: 2.5vw; /* 여백 증가 */
+  }
+
+  .fotSub2 li:nth-child(1) p {
+    font-size: 1.7vw; /* 폰트 크기 증가 */
+    line-height: 2.8vw; /* 줄 간격 증가 */
+    opacity: 0.7;
+  }
+
+  .fotSub2 li:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5vw; /* 간격 증가 */
+    margin-top: 2vw; /* 상단 여백 추가 */
+  }
+
+  .fotSub2 li:nth-child(2) p {
+    font-size: 1.7vw; /* 폰트 크기 증가 */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    margin-right: 2.5vw; /* 여백 증가 */
+  }
+
+  .fotSub2 li:nth-child(2) p:hover {
+    opacity: 1;
+  }
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 767px) {
+  /* 헤더 */
+  header {
+    padding: 4vw 5vw;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4vw;
+  }
+
+  header img {
+    width: 20vw;
+  }
+
+  header h2 {
+    display: none;
+    font-size: 5vw;
+  }
+
+  header i {
+    font-size: 5vw;
+  }
+
+  .subMenu {
+    display: none;
+    font-size: 3vw;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+
+  .head > li:nth-child(4) {
+    display: block;
+  }
+
+  /* 고객센터 반응형 */
+  .cs-container {
+    margin: 20px auto;
+  }
+
+  .cs-header {
+    margin-bottom: 24px;
+  }
+
+  .cs-header h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .cs-header p {
+    font-size: 14px;
+  }
+
+  .cs-search-box {
+    margin: 24px auto;
+  }
+
+  .cs-search-box input {
+    height: 48px;
+    padding: 0 16px 0 48px;
+    font-size: 16px;
+  }
+
+  .cs-search-box i {
+    left: 16px;
+    font-size: 16px;
+  }
+
+  .cs-categories {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .cs-category-card {
+    padding: 24px 16px;
+  }
+
+  .cs-category-card i {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .cs-category-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .cs-section-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .cs-faq-question {
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  .cs-faq-answer.active {
+    padding: 16px;
+  }
+
+  .cs-contact {
+    padding: 24px 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cs-contact-info h3 {
+    font-size: 20px;
+  }
+
+  .cs-contact-info p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .cs-contact-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cs-contact-button {
+    width: 100%;
+  }
+
+  .cs-contact-image {
+    display: none;
+  }
+
+  /* 푸터 */
+  footer {
+    color: #fff;
+    padding: 8vw 5vw;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #11005c;
+  }
+
+  footer img {
+    width: 20vw;
+  }
+
+  .fotSub {
+    padding: 10vw 0;
+    margin-bottom: 2vw;
+    border-bottom: 2px solid #006eff;
+    display: flex;
+    flex-direction: column;
+    gap: 8vw;
+    justify-content: center;
+  }
+
+  .fotSub h5 {
+    font-size: 4vw;
+    margin-bottom: 4vw;
+  }
+
+  .fotSub p {
+    font-size: 3vw;
+    cursor: pointer;
+    opacity: 0.5;
+    text-align: left;
+    line-height: 5vw;
+  }
+
+  .fotSub2 {
+    padding-top: 10vw;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .fotSub2 li {
+    width: 100%;
+    margin-bottom: 5vw;
+  }
+
+  .fotSub2 h3 {
+    font-size: 3vw;
+    margin-bottom: 2vw;
+  }
+
+  .fotSub2 li:nth-child(1) p {
+    font-size: 3vw;
+    line-height: 5vw;
+  }
+
+  .fotSub2 li:nth-child(2) {
+    font-size: 2.5vw;
+    text-align: left;
+  }
+
+  .fotSub2 li:nth-child(2) p {
+    line-height: 4vw;
+    cursor: pointer;
+  }
+}
+
+/* 모바일 메뉴 */
+.mobile-menu {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 33%;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  transition: top 0.5s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px;
+  padding-top: 20px;
+}
+
+/* 페이지네이션 반응형 스타일 */
+@media (max-width: 480px) {
+  /* 매우 작은 모바일 화면에서는 이전/다음의 텍스트 숨기고 아이콘만 표시 */
+  .page-button.prev,
+  .page-button.next {
+    width: 36px;
+    padding: 0;
+  }
+
+  .page-button.prev span,
+  .page-button.next span {
+    display: none;
+  }
+
+  /* 번호 버튼 크기 조정 */
+  .page-button {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}

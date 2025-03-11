@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>공지사항 - 칠빵대리운전</title>
+    <title>고객센터 - 칠빵대리운전</title>
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/notice.css" />
+    <link rel="stylesheet" href="css/customer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
@@ -37,7 +37,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="notice.html">Notice</a></li>
-            <li><a href="customer service.html">Customer Service</a></li>
+            <li><a href="customer-service.html">Customer Service</a></li>
           </ul>
         </li>
         <li><h2>7777-0000</h2></li>
@@ -45,149 +45,171 @@
       </ul>
     </header>
 
-    <div class="notice-container">
-      <div class="notice-header">
-        <h1>공지사항</h1>
-        <div class="search-box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="검색어를 입력하세요" />
+    <div class="cs-container">
+      <div class="cs-header">
+        <h1>칠빵대리운전 고객센터</h1>
+        <p>
+          칠빵대리운전과 관련된 궁금한 점이나 문제를 해결해 드립니다. 언제든지
+          문의해주세요.
+        </p>
+      </div>
+
+      <div class="cs-search-box">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" placeholder="무엇을 도와드릴까요?" />
+      </div>
+
+      <div class="cs-categories">
+        <div class="cs-category-card">
+          <i class="fa-solid fa-user"></i>
+          <h3>계정 관리</h3>
+          <p>
+            회원가입, 로그인, 회원정보 변경, 개인정보 관리에 관한 도움말입니다.
+          </p>
+          <a href="#" class="link"
+            >자세히 보기 <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="cs-category-card">
+          <i class="fa-solid fa-car"></i>
+          <h3>이용 안내</h3>
+          <p>
+            대리운전 서비스 이용 방법, 예약, 취소, 변경에 관한 도움말입니다.
+          </p>
+          <a href="#" class="link"
+            >자세히 보기 <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="cs-category-card">
+          <i class="fa-solid fa-credit-card"></i>
+          <h3>결제 및 환불</h3>
+          <p>
+            요금 정책, 결제 방법, 영수증 발급, 환불 정책에 관한 도움말입니다.
+          </p>
+          <a href="#" class="link"
+            >자세히 보기 <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="cs-category-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>안전 및 보안</h3>
+          <p>
+            안전한 서비스 이용, 보험 정책, 사고 대응 절차에 관한 도움말입니다.
+          </p>
+          <a href="#" class="link"
+            >자세히 보기 <i class="fa-solid fa-arrow-right"></i
+          ></a>
         </div>
       </div>
 
-      <div class="notice-categories">
-        <button class="category-button active">전체</button>
-        <button class="category-button">서비스 안내</button>
-        <button class="category-button">업데이트</button>
-        <button class="category-button">이벤트</button>
-        <button class="category-button">프로모션</button>
-        <button class="category-button">기사안내</button>
-        <button class="category-button">고객안내</button>
-      </div>
-
-      <div class="notice-list">
-        <div class="notice-item pinned">
-          <span class="notice-tag important">중요</span>
-          <h3>
-            <i class="fa-solid fa-thumbtack"></i>
-            칠빵대리운전 가입 및 이용 방법 안내
-          </h3>
-          <div class="notice-summary">
-            칠빵대리운전 서비스의 가입 방법과 이용 방법을 안내해 드립니다.
-            모바일 앱 다운로드 후 간편하게 이용하세요.
-          </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.03.01</span>
-            <span><i class="fa-regular fa-eye"></i> 1,532</span>
-          </div>
+      <div class="cs-faq">
+        <div class="cs-section-title">
+          <span>자주 묻는 질문</span>
+          <a href="#">전체 보기</a>
         </div>
 
-        <div class="notice-item pinned">
-          <span class="notice-tag important">중요</span>
-          <h3>
-            <i class="fa-solid fa-thumbtack"></i>
-            칠빵대리운전 3월 프로모션 안내
-          </h3>
-          <div class="notice-summary">
-            3월 한 달간 진행되는 할인 프로모션 안내입니다. 첫 이용 고객에게는
-            추가 할인 혜택을 드립니다.
+        <div class="cs-faq-list">
+          <div class="cs-faq-item">
+            <div class="cs-faq-question">
+              <span>칠빵대리운전 앱은 어디서 다운로드 받을 수 있나요?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="cs-faq-answer">
+              <p>
+                칠빵대리운전 앱은 iOS 앱 스토어와 안드로이드 구글 플레이
+                스토어에서 "칠빵대리운전"을 검색하여 다운로드 받으실 수
+                있습니다. 또는 저희 웹사이트 메인 페이지에서 QR 코드를 스캔하면
+                직접 다운로드 페이지로 연결됩니다.
+              </p>
+            </div>
           </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.28</span>
-            <span><i class="fa-regular fa-eye"></i> 1,247</span>
-          </div>
-        </div>
 
-        <div class="notice-item">
-          <span class="notice-tag update">업데이트</span>
-          <h3>칠빵대리운전 앱 업데이트 안내 (Ver 2.5.0)</h3>
-          <div class="notice-summary">
-            칠빵대리운전 앱 2.5.0 버전이 출시되었습니다. 주요 업데이트 내용을
-            확인하세요.
+          <div class="cs-faq-item">
+            <div class="cs-faq-question">
+              <span>회원가입은 어떻게 하나요?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="cs-faq-answer">
+              <p>
+                칠빵대리운전 앱을 다운로드 후 실행하여 초기 화면에서 '회원가입'
+                버튼을 누르고 안내에 따라 진행하시면 됩니다. 휴대폰 인증 후
+                필요한 정보를 입력하시면 가입이 완료됩니다. 회원가입은 무료이며,
+                약 2분 정도 소요됩니다.
+              </p>
+            </div>
           </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.25</span>
-            <span><i class="fa-regular fa-eye"></i> 983</span>
-          </div>
-        </div>
 
-        <div class="notice-item">
-          <span class="notice-tag event">이벤트</span>
-          <h3>칠빵대리운전 신규가입 이벤트 안내</h3>
-          <div class="notice-summary">
-            신규 가입 고객을 위한 특별 이벤트를 진행합니다. 회원가입 시 즉시
-            사용 가능한 3,000원 할인 쿠폰을 드립니다.
+          <div class="cs-faq-item">
+            <div class="cs-faq-question">
+              <span>대리운전 요금은 어떻게 결정되나요?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="cs-faq-answer">
+              <p>
+                대리운전 요금은 출발지와 목적지 간의 거리, 시간대(심야할증),
+                날씨 조건 등에 따라 자동으로 계산됩니다. 정확한 요금은 앱에서
+                출발지와 목적지를 입력하시면 확인하실 수 있습니다. 또한 역경매
+                시스템을 통해 기사님과 협의하여 최종 요금을 결정할 수도
+                있습니다.
+              </p>
+            </div>
           </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.20</span>
-            <span><i class="fa-regular fa-eye"></i> 856</span>
-          </div>
-        </div>
 
-        <div class="notice-item">
-          <span class="notice-tag update">업데이트</span>
-          <h3>기사님을 위한 리워드 정책 업데이트 안내</h3>
-          <div class="notice-summary">
-            기사님들의 서비스 품질 향상을 위한 리워드 정책이 업데이트
-            되었습니다. 자세한 내용을 확인해주세요.
+          <div class="cs-faq-item">
+            <div class="cs-faq-question">
+              <span>예약을 취소하면 수수료가 발생하나요?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="cs-faq-answer">
+              <p>
+                기사님이 배정되기 전에는 취소 수수료가 발생하지 않습니다. 하지만
+                기사님이 배정된 후 취소할 경우, 기사님의 이동 시간 및 거리에
+                따라 취소 수수료가 발생할 수 있습니다. 자세한 내용은 앱 내
+                '이용약관'에서 확인하실 수 있습니다.
+              </p>
+            </div>
           </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.15</span>
-            <span><i class="fa-regular fa-eye"></i> 742</span>
-          </div>
-        </div>
 
-        <div class="notice-item">
-          <span class="notice-tag update">업데이트</span>
-          <h3>칠빵대리운전 결제 시스템 업데이트 안내</h3>
-          <div class="notice-summary">
-            결제 시스템이 업데이트되어 더 다양한 결제 수단을 지원합니다. 이제
-            간편결제와 포인트 결제가 가능합니다.
-          </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.10</span>
-            <span><i class="fa-regular fa-eye"></i> 698</span>
-          </div>
-        </div>
-
-        <div class="notice-item">
-          <span class="notice-tag event">이벤트</span>
-          <h3>친구 추천 이벤트 안내</h3>
-          <div class="notice-summary">
-            친구 추천 이벤트를 진행합니다. 친구를 추천하고 추천인과 피추천인
-            모두 5,000원 할인 쿠폰을 받으세요.
-          </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.05</span>
-            <span><i class="fa-regular fa-eye"></i> 621</span>
-          </div>
-        </div>
-
-        <div class="notice-item">
-          <span class="notice-tag update">업데이트</span>
-          <h3>칠빵대리운전 서비스 이용약관 개정 안내</h3>
-          <div class="notice-summary">
-            서비스 이용약관이 개정되었습니다. 주요 변경사항을 확인하시고
-            서비스를 이용해주세요.
-          </div>
-          <div class="notice-info">
-            <span><i class="fa-regular fa-calendar"></i> 2025.02.01</span>
-            <span><i class="fa-regular fa-eye"></i> 574</span>
+          <div class="cs-faq-item">
+            <div class="cs-faq-question">
+              <span>영수증은 어떻게 발급받을 수 있나요?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="cs-faq-answer">
+              <p>
+                대리운전 서비스 이용 후 앱 내 '이용내역'에서 해당 이용건을
+                선택하고 '영수증 발급' 버튼을 누르시면 됩니다. 일반 영수증과
+                현금영수증 모두 발급 가능하며, 이메일로 전송되거나 앱 내에서
+                확인하실 수 있습니다. 과거 이용 내역에 대한 영수증도 발급
+                가능합니다.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="pagination">
-        <button class="page-button prev">
-          <i class="fa-solid fa-chevron-left"></i> <span>이전</span>
-        </button>
-        <button class="page-button active">1</button>
-        <button class="page-button">2</button>
-        <button class="page-button">3</button>
-        <button class="page-button">4</button>
-        <button class="page-button">5</button>
-        <button class="page-button next">
-          <span>다음</span> <i class="fa-solid fa-chevron-right"></i>
-        </button>
+      <div class="cs-contact">
+        <div class="cs-contact-info">
+          <h3>더 궁금한 점이 있으신가요?</h3>
+          <p>
+            추가 문의사항이 있으시면 전화나 1:1 문의를 통해 연락해주세요. 빠르게
+            답변해드리겠습니다.
+          </p>
+          <div class="cs-contact-buttons">
+            <button class="cs-contact-button primary">
+              <i class="fa-solid fa-headset"></i> 1:1 문의하기
+            </button>
+            <button class="cs-contact-button secondary">
+              <i class="fa-solid fa-phone"></i> 전화 상담하기
+            </button>
+          </div>
+        </div>
+        <div class="cs-contact-image">
+          <img src="img/cs_contact.png" alt="고객센터 문의 이미지" />
+        </div>
       </div>
     </div>
 
@@ -254,6 +276,10 @@
           return window.innerWidth >= 768 && window.innerWidth <= 1023;
         }
 
+        function isMobile() {
+          return window.innerWidth < 768;
+        }
+
         // 부드러운 스크롤 효과
         $('a[href^="#"]').on("click", function (e) {
           e.preventDefault();
@@ -277,7 +303,13 @@
           return;
         }
 
+        // 모바일에서만 햄버거 메뉴 작동하도록 수정
         menuIcon.addEventListener("click", function () {
+          // 태블릿이면 메뉴 표시하지 않음
+          if (isTablet()) {
+            return;
+          }
+
           // 기존 모바일 메뉴 삭제 (중복 생성 방지)
           const existingMenu = document.querySelector(".mobile-menu");
           if (existingMenu) {
@@ -288,10 +320,10 @@
           const mobileMenu = document.createElement("div");
           mobileMenu.className = "mobile-menu";
 
-          // 태블릿 또는 모바일에 따라 스타일 조정
-          const menuHeight = isTablet() ? "40%" : "33%";
-          const paddingTop = isTablet() ? "30px" : "20px";
-          const menuBorderRadius = isTablet() ? "0 0 20px 20px" : "0";
+          // 모바일에서만 메뉴 표시
+          const menuHeight = "33%";
+          const paddingTop = "20px";
+          const menuBorderRadius = "0";
 
           Object.assign(mobileMenu.style, {
             position: "fixed",
@@ -317,7 +349,7 @@
           topSection.style.display = "flex";
           topSection.style.alignItems = "center";
           topSection.style.justifyContent = "space-between";
-          topSection.style.padding = isTablet() ? "15px 30px" : "10px 20px";
+          topSection.style.padding = "10px 20px";
 
           // 로고
           const logo = document.createElement("a");
@@ -325,7 +357,7 @@
           const logoImg = document.createElement("img");
           logoImg.src = "img/logo_color.png";
           logoImg.alt = "칠빵대리운전 로고";
-          logoImg.style.height = isTablet() ? "50px" : "40px"; // 태블릿에서는 더 크게
+          logoImg.style.height = "40px";
           logo.style.display = "flex";
           logo.style.alignItems = "center";
           logo.appendChild(logoImg);
@@ -333,12 +365,12 @@
           // 전화번호
           const phoneNumber = document.createElement("div");
           phoneNumber.textContent = "7777-0000"; // 전화번호
-          phoneNumber.style.fontSize = isTablet() ? "20px" : "16px";
+          phoneNumber.style.fontSize = "16px";
           phoneNumber.style.fontWeight = "900";
           phoneNumber.style.color = "#006eff";
           phoneNumber.style.position = "absolute"; // 위치를 절대적으로 설정
-          phoneNumber.style.top = isTablet() ? "55px" : "45px";
-          phoneNumber.style.right = isTablet() ? "15vw" : "20vw";
+          phoneNumber.style.top = "45px";
+          phoneNumber.style.right = "20vw";
           topSection.appendChild(logo);
           topSection.appendChild(phoneNumber);
 
@@ -347,7 +379,7 @@
           Object.assign(menuList.style, {
             listStyle: "none",
             padding: "0",
-            margin: isTablet() ? "40px 0" : "20px 0",
+            margin: "20px 0",
             width: "100%",
           });
 
@@ -356,14 +388,14 @@
             { name: "Home", url: "index.html" },
             { name: "About", url: "about.html" },
             { name: "Notice", url: "notice.html" },
-            { name: "Customer Service", url: "customer service.html" },
+            { name: "Customer Service", url: "customer-service.html" },
           ];
 
           menuItems.forEach((item, index) => {
             const li = document.createElement("li");
-            const marginValue = isTablet() ? "20px 0" : "15px 0";
-            const fontSize = isTablet() ? "24px" : "20px";
-            const paddingLeft = isTablet() ? "40px" : "20px";
+            const marginValue = "15px 0";
+            const fontSize = "20px";
+            const paddingLeft = "20px";
 
             Object.assign(li.style, {
               margin: marginValue,
@@ -406,9 +438,9 @@
           closeButton.innerHTML = '<i class="fa-solid fa-times"></i>';
           Object.assign(closeButton.style, {
             position: "absolute",
-            top: isTablet() ? "30px" : "20px",
-            right: isTablet() ? "30px" : "20px",
-            fontSize: isTablet() ? "36px" : "30px",
+            top: "20px",
+            right: "20px",
+            fontSize: "30px",
             color: "#333",
             cursor: "pointer",
             transition: "transform 0.3s ease-in-out, color 0.3s ease-in-out",
@@ -444,15 +476,31 @@
           }, 10);
         });
 
-        // 카테고리 버튼 클릭 이벤트
-        const categoryButtons = document.querySelectorAll(".category-button");
-        categoryButtons.forEach((button) => {
-          button.addEventListener("click", function () {
-            categoryButtons.forEach((btn) => {
-              btn.classList.remove("active");
-            });
-            this.classList.add("active");
-          });
+        // 화면 크기 변경 감지
+        $(window).on("resize", function () {
+          // 태블릿 사이즈로 변경되면 모바일 메뉴 제거
+          if (isTablet()) {
+            const mobileMenu = document.querySelector(".mobile-menu");
+            if (mobileMenu) {
+              mobileMenu.remove();
+            }
+          }
+        });
+
+        // FAQ 토글 기능
+        $(".cs-faq-question").on("click", function () {
+          const answer = $(this).next(".cs-faq-answer");
+          const isActive = $(this).hasClass("active");
+
+          // 모든 FAQ 닫기
+          $(".cs-faq-question").removeClass("active");
+          $(".cs-faq-answer").removeClass("active");
+
+          // 클릭한 FAQ 열기 (이미 열려있었다면 닫힘)
+          if (!isActive) {
+            $(this).addClass("active");
+            answer.addClass("active");
+          }
         });
       });
     </script>
