@@ -38,7 +38,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="notice.html">Notice</a></li>
-            <li><a href="customer service.html">Customer Service</a></li>
+            <li><a href="service.html">Customer Service</a></li>
           </ul>
         </li>
         <li><h2>7777-0000</h2></li>
@@ -118,64 +118,6 @@
             <div class="stat-item">
               <div class="stat-number">14%</div>
               <div class="stat-label">업계 최저 수수료</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 역사 섹션 -->
-      <section class="about-section">
-        <div class="container">
-          <div class="section-heading">
-            <h2>칠빵의 역사</h2>
-            <p>더 나은, 더 공정한 대리운전 서비스를 위한 우리의 여정</p>
-          </div>
-          <div class="history-timeline">
-            <div class="timeline-item">
-              <div class="timeline-year">2022</div>
-              <div class="timeline-content">
-                <h3>칠빵대리운전 설립</h3>
-                <p>
-                  대리운전 서비스의 새로운 패러다임을 제시하기 위해
-                  설립되었습니다.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2023</div>
-              <div class="timeline-content">
-                <h3>역경매 시스템 도입</h3>
-                <p>
-                  국내 최초로 고객과 기사가 가격을 협상할 수 있는 역경매
-                  시스템을 도입했습니다.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2023</div>
-              <div class="timeline-content">
-                <h3>리워드 프로그램 런칭</h3>
-                <p>
-                  고객과 기사 모두에게 혜택을 주는 리워드 프로그램을
-                  시작했습니다.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2024</div>
-              <div class="timeline-content">
-                <h3>월간 이용자 3만 돌파</h3>
-                <p>
-                  고객들의 신뢰와 사랑으로 월간 이용자 3만 명을 돌파했습니다.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2025</div>
-              <div class="timeline-content">
-                <h3>서비스 지역 확장</h3>
-                <p>전국 주요 도시로 서비스 지역을 확장하고 있습니다.</p>
-              </div>
             </div>
           </div>
         </div>
@@ -603,38 +545,45 @@
           const mobileMenu = document.createElement("div");
           mobileMenu.className = "mobile-menu";
 
-          // 태블릿 또는 모바일에 따라 스타일 조정
-          const menuHeight = isTablet() ? "40%" : "33%";
+          // 태블릿 또는 모바일에 따라 스타일 조정 - 자동 높이 설정
           const paddingTop = isTablet() ? "30px" : "20px";
-          const menuBorderRadius = isTablet() ? "0 0 20px 20px" : "0";
+          const menuBorderRadius = isTablet()
+            ? "0 0 20px 20px"
+            : "0 0 15px 15px";
 
           Object.assign(mobileMenu.style, {
             position: "fixed",
             top: "-100%", // 처음에는 화면 위로 숨겨둠
             left: "0",
             width: "100%",
-            height: menuHeight,
+            height: "auto", // 자동 높이 설정 - 콘텐츠에 맞게 조절됨
+            minHeight: isTablet() ? "250px" : "200px", // 최소 높이 설정
+            maxHeight: "90vh", // 최대 높이는 화면의 90%로 제한
             backgroundColor: "white",
             zIndex: "1000",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             paddingTop: paddingTop,
+            paddingBottom: isTablet() ? "30px" : "20px", // 하단 패딩 추가
             boxSizing: "border-box",
             transition: "top 0.5s ease-in-out",
             boxShadow: "rgba(0, 0, 0, 0.15) 0px 10px 30px",
             borderRadius: menuBorderRadius,
-            overflow: "hidden",
+            overflowY: "auto", // 세로 스크롤 허용
+            overflowX: "hidden", // 가로 스크롤 방지
           });
 
           // 로고 및 전화번호 추가 (상단)
           const topSection = document.createElement("div");
-          topSection.style.width = "100%";
-          topSection.style.display = "flex";
-          topSection.style.alignItems = "center";
-          topSection.style.justifyContent = "space-between";
-          topSection.style.padding = isTablet() ? "15px 30px" : "10px 20px";
-          topSection.style.position = "relative";
+          Object.assign(topSection.style, {
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start", // 왼쪽 정렬로 변경
+            padding: isTablet() ? "15px 30px" : "10px 20px",
+            position: "relative", // 상대적 위치 설정
+          });
 
           // 로고
           const logo = document.createElement("a");
@@ -647,7 +596,7 @@
           logo.style.alignItems = "center";
           logo.appendChild(logoImg);
 
-          // 전화번호
+          // 전화번호 - 원래 위치 유지
           const phoneNumber = document.createElement("div");
           phoneNumber.textContent = "7777-0000"; // 전화번호
           phoneNumber.style.fontSize = isTablet() ? "20px" : "16px";
@@ -655,7 +604,7 @@
           phoneNumber.style.color = "#006eff";
           phoneNumber.style.position = "absolute"; // 위치를 절대적으로 설정
           phoneNumber.style.top = isTablet() ? "55px" : "20px";
-          phoneNumber.style.right = isTablet() ? "15vw" : "20vw";
+          phoneNumber.style.right = isTablet() ? "15vw" : "25vw";
           topSection.appendChild(logo);
           topSection.appendChild(phoneNumber);
 
@@ -666,7 +615,7 @@
             padding: "0",
             margin: isTablet() ? "40px 0" : "20px 0",
             width: "100%",
-            overflow: "hidden",
+            overflowX: "hidden", // 가로 스크롤 방지
           });
 
           // 모바일 메뉴 아이템
@@ -674,7 +623,7 @@
             { name: "Home", url: "index.html" },
             { name: "About", url: "about.html" },
             { name: "Notice", url: "notice.html" },
-            { name: "Customer Service", url: "customer service.html" },
+            { name: "Customer Service", url: "service.html" }, // URL 수정 (공백 제거)
           ];
 
           menuItems.forEach((item, index) => {
@@ -702,6 +651,8 @@
               color: "#333",
               display: "block",
               transition: "color 0.2s ease-in-out",
+              width: "100%", // 전체 너비 사용
+              padding: "5px 0", // 버튼 영역 확장
             });
 
             link.textContent = item.name;
@@ -730,6 +681,7 @@
             color: "#333",
             cursor: "pointer",
             transition: "transform 0.3s ease-in-out, color 0.3s ease-in-out",
+            zIndex: "1001", // 닫기 버튼이 항상 최상단에 위치하도록
           });
 
           closeButton.addEventListener("mouseover", () => {
@@ -746,10 +698,7 @@
             setTimeout(() => mobileMenu.remove(), 500);
           });
 
-          // 요소 추가
-          topSection.appendChild(logo);
-          topSection.appendChild(phoneNumber);
-
+          // 요소 추가 (topSection에 이미 추가되어 있으므로 중복 추가 제거)
           mobileMenu.appendChild(topSection);
           mobileMenu.appendChild(menuList);
           mobileMenu.appendChild(closeButton);

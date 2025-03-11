@@ -37,7 +37,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="notice.html">Notice</a></li>
-            <li><a href="customer service.html">Customer Service</a></li>
+            <li><a href="service.html">Customer Service</a></li>
           </ul>
         </li>
         <li><h2>7777-0000</h2></li>
@@ -296,36 +296,45 @@
           const mobileMenu = document.createElement("div");
           mobileMenu.className = "mobile-menu";
 
-          // 태블릿 또는 모바일에 따라 스타일 조정
-          const menuHeight = isTablet() ? "40%" : "33%";
+          // 태블릿 또는 모바일에 따라 스타일 조정 - 높이를 자동으로 변경
           const paddingTop = isTablet() ? "30px" : "20px";
-          const menuBorderRadius = isTablet() ? "0 0 20px 20px" : "0";
+          const menuBorderRadius = isTablet()
+            ? "0 0 20px 20px"
+            : "0 0 15px 15px";
 
           Object.assign(mobileMenu.style, {
             position: "fixed",
             top: "-100%", // 처음에는 화면 위로 숨겨둠
             left: "0",
             width: "100%",
-            height: menuHeight,
+            height: "auto", // 자동 높이 설정 - 콘텐츠에 맞게 조절됨
+            minHeight: isTablet() ? "250px" : "200px", // 최소 높이 설정
+            maxHeight: "90vh", // 최대 높이는 화면의 90%로 제한
             backgroundColor: "white",
             zIndex: "1000",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             paddingTop: paddingTop,
+            paddingBottom: isTablet() ? "30px" : "20px", // 하단 패딩 추가
             boxSizing: "border-box",
             transition: "top 0.5s ease-in-out",
             boxShadow: "rgba(0, 0, 0, 0.15) 0px 10px 30px",
             borderRadius: menuBorderRadius,
+            overflowY: "auto", // 세로 스크롤 허용
+            overflowX: "hidden", // 가로 스크롤 방지
           });
 
           // 로고 및 전화번호 추가 (상단)
           const topSection = document.createElement("div");
-          topSection.style.width = "100%";
-          topSection.style.display = "flex";
-          topSection.style.alignItems = "center";
-          topSection.style.justifyContent = "space-between";
-          topSection.style.padding = isTablet() ? "15px 30px" : "10px 20px";
+          Object.assign(topSection.style, {
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start", // 왼쪽 정렬로 변경
+            padding: isTablet() ? "15px 30px" : "10px 20px",
+            position: "relative", // 상대적 위치 설정 추가
+          });
 
           // 로고
           const logo = document.createElement("a");
@@ -338,15 +347,15 @@
           logo.style.alignItems = "center";
           logo.appendChild(logoImg);
 
-          // 전화번호
+          // 전화번호 - 위치 유지
           const phoneNumber = document.createElement("div");
           phoneNumber.textContent = "7777-0000"; // 전화번호
           phoneNumber.style.fontSize = isTablet() ? "20px" : "16px";
           phoneNumber.style.fontWeight = "900";
           phoneNumber.style.color = "#006eff";
           phoneNumber.style.position = "absolute"; // 위치를 절대적으로 설정
-          phoneNumber.style.top = isTablet() ? "55px" : "45px";
-          phoneNumber.style.right = isTablet() ? "15vw" : "20vw";
+          phoneNumber.style.top = isTablet() ? "55px" : "20px";
+          phoneNumber.style.right = isTablet() ? "15vw" : "25vw";
           topSection.appendChild(logo);
           topSection.appendChild(phoneNumber);
 
@@ -364,7 +373,7 @@
             { name: "Home", url: "index.html" },
             { name: "About", url: "about.html" }, // 실제 About 페이지 URL로 교체 필요
             { name: "Notice", url: "notice.html" }, // 실제 Notice 페이지 URL로 교체 필요
-            { name: "Customer Service", url: "customer service.html" }, // 실제 Customer Service 페이지 URL로 교체 필요
+            { name: "Customer Service", url: "service.html" }, // 실제 Customer Service 페이지 URL로 교체 필요
           ];
 
           menuItems.forEach((item, index) => {
@@ -392,6 +401,8 @@
               color: "#333",
               display: "block",
               transition: "color 0.2s ease-in-out",
+              width: "100%", // 전체 너비 사용
+              padding: "5px 0", // 버튼 영역 확장
             });
 
             link.textContent = item.name;
