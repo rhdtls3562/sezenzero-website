@@ -4,6 +4,15 @@ body {
   overflow-x: hidden;
 }
 
+header i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header i:hover {
+  color: #006eff;
+}
+
 @media (min-width: 1024px) {
   /*header*/
 

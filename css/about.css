@@ -2,6 +2,15 @@ html {
   letter-spacing: -1px;
 }
 
+header i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header i:hover {
+  color: #006eff;
+}
+
 /* About 페이지 스타일 */
 :root {
   --primary-color: #006eff;

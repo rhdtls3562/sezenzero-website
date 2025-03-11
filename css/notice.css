@@ -19,6 +19,15 @@ body {
   line-height: 1.6;
 }
 
+header i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header i:hover {
+  color: #006eff;
+}
+
 /* 태블릿 화면에서 햄버거 메뉴 숨기기 */
 @media (min-width: 768px) and (max-width: 1023px) {
   .head > li:nth-child(4) {
