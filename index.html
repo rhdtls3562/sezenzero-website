@@ -6,6 +6,7 @@
     <title>칠빵대리운전</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/index.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
@@ -272,14 +273,9 @@
         </li>
       </ul>
     </footer>
-    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
     <script>
       $(document).ready(function () {
-        // 디바이스 확인 함수
-        function isTablet() {
-          return window.innerWidth >= 768 && window.innerWidth <= 1023;
-        }
-
         // 부드러운 스크롤 효과
         $('a[href^="#"]').on("click", function (e) {
           e.preventDefault();
@@ -290,12 +286,10 @@
             {
               scrollTop: $target.offset().top,
             },
-            300, // 스크롤 속도 향상 (1000ms → 800ms)
+            300, // 스크롤 속도 향상 (1000ms → 300ms)
             "easeInOutQuart"
           );
         });
-
-        // 햄버거 메뉴 (코드 생략 - 변경 불필요)...
 
         // 스크롤 이벤트 감지 - 태블릿에서 다른 트리거 포인트 적용
         $(window).scroll(function () {
@@ -389,68 +383,6 @@
             scrollTop,
             windowHeight,
             150 * tabletDelayFactor,
-            triggerFactor
-          );
-
-          // 카테고리 요소 딜레이 감소
-          animateElement(
-            ".con2Category li:nth-child(1)",
-            scrollTop,
-            windowHeight,
-            100 * tabletDelayFactor, // 700 -> 300으로 감소
-            triggerFactor
-          );
-          animateElement(
-            ".con2Category li:nth-child(2)",
-            scrollTop,
-            windowHeight,
-            150 * tabletDelayFactor, // 900 -> 350으로 감소
-            triggerFactor
-          );
-          animateElement(
-            ".con2Category li:nth-child(3)",
-            scrollTop,
-            windowHeight,
-            200 * tabletDelayFactor, // 1100 -> 400으로 감소
-            triggerFactor
-          );
-          animateElement(
-            ".con2Category li:nth-child(4)",
-            scrollTop,
-            windowHeight,
-            250 * tabletDelayFactor, // 1300 -> 450으로 감소
-            triggerFactor
-          );
-
-          // con3 섹션 요소들
-          animateElement(
-            ".con3 h2",
-            scrollTop,
-            windowHeight,
-            100 * tabletDelayFactor,
-            triggerFactor
-          );
-          animateElement(
-            ".con3 h5",
-            scrollTop,
-            windowHeight,
-            150 * tabletDelayFactor,
-            triggerFactor
-          );
-          $(".con3 p").each(function (index) {
-            animateElement(
-              this,
-              scrollTop,
-              windowHeight,
-              (200 + index * 50) * tabletDelayFactor, // 700+index*100 -> 250+index*50으로 감소
-              triggerFactor
-            );
-          });
-          animateElement(
-            ".con3 img",
-            scrollTop,
-            windowHeight,
-            250 * tabletDelayFactor, // 900 -> 350으로 감소
             triggerFactor
           );
 
@@ -556,6 +488,71 @@
             200 * tabletDelayFactor,
             triggerFactor
           );
+
+          // 카테고리 요소 딜레이 감소
+          animateElement(
+            ".con2Category li:nth-child(1)",
+            scrollTop,
+            windowHeight,
+            100 * tabletDelayFactor, // 700 -> 300으로 감소
+            triggerFactor
+          );
+          animateElement(
+            ".con2Category li:nth-child(2)",
+            scrollTop,
+            windowHeight,
+            150 * tabletDelayFactor, // 900 -> 350으로 감소
+            triggerFactor
+          );
+          animateElement(
+            ".con2Category li:nth-child(3)",
+            scrollTop,
+            windowHeight,
+            200 * tabletDelayFactor, // 1100 -> 400으로 감소
+            triggerFactor
+          );
+          animateElement(
+            ".con2Category li:nth-child(4)",
+            scrollTop,
+            windowHeight,
+            250 * tabletDelayFactor, // 1300 -> 450으로 감소
+            triggerFactor
+          );
+
+          // con3 섹션 요소들
+          animateElement(
+            ".con3 h2",
+            scrollTop,
+            windowHeight,
+            100 * tabletDelayFactor,
+            triggerFactor
+          );
+          animateElement(
+            ".con3 h5",
+            scrollTop,
+            windowHeight,
+            150 * tabletDelayFactor,
+            triggerFactor
+          );
+          $(".con3 p").each(function (index) {
+            animateElement(
+              this,
+              scrollTop,
+              windowHeight,
+              (200 + index * 50) * tabletDelayFactor, // 700+index*100 -> 250+index*50으로 감소
+              triggerFactor
+            );
+          });
+          animateElement(
+            ".con3 img",
+            scrollTop,
+            windowHeight,
+            250 * tabletDelayFactor, // 900 -> 350으로 감소
+            triggerFactor
+          );
+
+          // con4, con5, con6 섹션 요소들 - 생략 (유사 패턴)
+          // ... 생략 ...
         }
 
         // 개별 요소 애니메이션 함수 - CSS 트랜지션 속도 증가
@@ -584,7 +581,6 @@
             setTimeout(function () {
               // CSS 애니메이션이 빠르게 작동되도록 클래스 추가
               $element.addClass("animated fadeIn");
-              // CSS 트랜지션을 빠르게 만들려면 CSS에서 fadeIn 애니메이션 속도를 조정해야 함
             }, delay);
           }
         }

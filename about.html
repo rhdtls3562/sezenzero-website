@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - 칠빵대리운전</title>
+    <!-- 기존 index.css 추가 - 헤더와 푸터 스타일 포함 -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/about.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
@@ -18,6 +20,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <!-- jQuery 라이브러리 - 헤드에 추가 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- jQuery Easing 플러그인 - 헤드에 추가 -->
@@ -350,7 +353,7 @@
               </div>
               <div class="review-author">
                 <div class="review-author-avatar">
-                  <img src="/img/women.jpg" alt="사용자 이미지" />
+                  <img src="img/women.jpg" alt="사용자 이미지" />
                 </div>
                 <div class="review-author-info">
                   <h4>이지은</h4>
@@ -375,7 +378,7 @@
               </div>
               <div class="review-author">
                 <div class="review-author-avatar">
-                  <img src="/img/men (1).jpg" alt="사용자 이미지" />
+                  <img src="img/men.jpg" alt="사용자 이미지" />
                 </div>
                 <div class="review-author-info">
                   <h4>박대리</h4>
@@ -456,10 +459,9 @@
       </ul>
     </footer>
 
-    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
 
     <script>
-      // 스크롤 애니메이션 효과 구현하기 - 기존 디자인 유지하며 토스스타일 애니메이션 추가
       $(document).ready(function () {
         // 초기 요소들 숨기기 (기존 디자인은 유지하되 애니메이션을 위해 초기 상태 설정)
         $(
@@ -518,201 +520,6 @@
             );
           }, 200);
         }, 300);
-
-        const menuIcon = document.querySelector(".fa-bars");
-
-        if (!menuIcon) {
-          console.error('⚠️ ".fa-bars" 아이콘을 찾을 수 없음!');
-          return;
-        }
-
-        // 디바이스 확인 함수
-        function isTablet() {
-          return window.innerWidth >= 768 && window.innerWidth <= 1023;
-        }
-
-        menuIcon.addEventListener("click", createMobileMenu);
-
-        function createMobileMenu() {
-          // 기존 모바일 메뉴 삭제 (중복 생성 방지)
-          const existingMenu = document.querySelector(".mobile-menu");
-          if (existingMenu) {
-            existingMenu.remove();
-            return;
-          }
-
-          // 새로운 모바일 메뉴 생성
-          const mobileMenu = document.createElement("div");
-          mobileMenu.className = "mobile-menu";
-
-          // 태블릿 또는 모바일에 따라 스타일 조정 - 자동 높이 설정
-          const paddingTop = isTablet() ? "30px" : "20px";
-          const menuBorderRadius = isTablet()
-            ? "0 0 20px 20px"
-            : "0 0 15px 15px";
-
-          Object.assign(mobileMenu.style, {
-            position: "fixed",
-            top: "-100%", // 처음에는 화면 위로 숨겨둠
-            left: "0",
-            width: "100%",
-            height: "auto", // 자동 높이 설정 - 콘텐츠에 맞게 조절됨
-            minHeight: isTablet() ? "250px" : "200px", // 최소 높이 설정
-            maxHeight: "90vh", // 최대 높이는 화면의 90%로 제한
-            backgroundColor: "white",
-            zIndex: "1000",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            paddingTop: paddingTop,
-            paddingBottom: isTablet() ? "30px" : "20px", // 하단 패딩 추가
-            boxSizing: "border-box",
-            transition: "top 0.5s ease-in-out",
-            boxShadow: "rgba(0, 0, 0, 0.15) 0px 10px 30px",
-            borderRadius: menuBorderRadius,
-            overflowY: "auto", // 세로 스크롤 허용
-            overflowX: "hidden", // 가로 스크롤 방지
-          });
-
-          // 로고 및 전화번호 추가 (상단)
-          const topSection = document.createElement("div");
-          Object.assign(topSection.style, {
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start", // 왼쪽 정렬로 변경
-            padding: isTablet() ? "15px 30px" : "10px 20px",
-            position: "relative", // 상대적 위치 설정
-          });
-
-          // 로고
-          const logo = document.createElement("a");
-          logo.href = "index.html";
-          const logoImg = document.createElement("img");
-          logoImg.src = "img/logo_color.png";
-          logoImg.alt = "칠빵대리운전 로고";
-          logoImg.style.height = isTablet() ? "50px" : "40px";
-          logo.style.display = "flex";
-          logo.style.alignItems = "center";
-          logo.appendChild(logoImg);
-
-          // 전화번호 - 원래 위치 유지
-          const phoneNumber = document.createElement("div");
-          phoneNumber.textContent = "7777-0000"; // 전화번호
-          phoneNumber.style.fontSize = isTablet() ? "20px" : "16px";
-          phoneNumber.style.fontWeight = "900";
-          phoneNumber.style.color = "#006eff";
-          phoneNumber.style.position = "absolute"; // 위치를 절대적으로 설정
-          phoneNumber.style.top = isTablet() ? "55px" : "20px";
-          phoneNumber.style.right = isTablet() ? "15vw" : "25vw";
-          topSection.appendChild(logo);
-          topSection.appendChild(phoneNumber);
-
-          // 메뉴 리스트 생성
-          const menuList = document.createElement("div");
-          Object.assign(menuList.style, {
-            listStyle: "none",
-            padding: "0",
-            margin: isTablet() ? "40px 0" : "20px 0",
-            width: "100%",
-            overflowX: "hidden", // 가로 스크롤 방지
-          });
-
-          // 모바일 메뉴 아이템
-          const menuItems = [
-            { name: "Home", url: "index.html" },
-            { name: "About", url: "about.html" },
-            { name: "Notice", url: "notice.html" },
-            { name: "Customer Service", url: "service.html" }, // URL 수정 (공백 제거)
-          ];
-
-          menuItems.forEach((item, index) => {
-            const li = document.createElement("div");
-            const marginValue = isTablet() ? "20px 0" : "15px 0";
-            const fontSize = isTablet() ? "24px" : "20px";
-            const paddingLeft = isTablet() ? "40px" : "20px";
-
-            Object.assign(li.style, {
-              margin: marginValue,
-              fontSize: fontSize,
-              fontWeight: "bold",
-              color: "#333",
-              paddingLeft: paddingLeft,
-              opacity: "0",
-              transform: "translateY(-20px)",
-              transition: `opacity 0.5s ease-in-out ${
-                index * 0.1 + 0.3
-              }s, transform 0.5s ease-in-out ${index * 0.1 + 0.3}s`,
-            });
-
-            const link = document.createElement("a");
-            Object.assign(link.style, {
-              textDecoration: "none",
-              color: "#333",
-              display: "block",
-              transition: "color 0.2s ease-in-out",
-              width: "100%", // 전체 너비 사용
-              padding: "5px 0", // 버튼 영역 확장
-            });
-
-            link.textContent = item.name;
-            link.href = item.url;
-
-            // 호버 효과
-            link.addEventListener("mouseover", () => {
-              link.style.color = "#006eff";
-            });
-            link.addEventListener("mouseleave", () => {
-              link.style.color = "#333";
-            });
-
-            li.appendChild(link);
-            menuList.appendChild(li);
-          });
-
-          // 닫기 버튼
-          const closeButton = document.createElement("div");
-          closeButton.innerHTML = '<i class="fa-solid fa-times"></i>';
-          Object.assign(closeButton.style, {
-            position: "absolute",
-            top: isTablet() ? "30px" : "20px",
-            right: isTablet() ? "30px" : "20px",
-            fontSize: isTablet() ? "36px" : "30px",
-            color: "#333",
-            cursor: "pointer",
-            transition: "transform 0.3s ease-in-out, color 0.3s ease-in-out",
-            zIndex: "1001", // 닫기 버튼이 항상 최상단에 위치하도록
-          });
-
-          closeButton.addEventListener("mouseover", () => {
-            closeButton.style.transform = "rotate(180deg)";
-            closeButton.style.color = "#006eff";
-          });
-          closeButton.addEventListener("mouseleave", () => {
-            closeButton.style.transform = "rotate(0deg)";
-            closeButton.style.color = "#333";
-          });
-
-          closeButton.addEventListener("click", function () {
-            mobileMenu.style.top = "-100%"; // 위로 올라가면서 사라짐
-            setTimeout(() => mobileMenu.remove(), 500);
-          });
-
-          // 요소 추가 (topSection에 이미 추가되어 있으므로 중복 추가 제거)
-          mobileMenu.appendChild(topSection);
-          mobileMenu.appendChild(menuList);
-          mobileMenu.appendChild(closeButton);
-          document.body.appendChild(mobileMenu);
-
-          // 애니메이션 효과 적용 (메뉴 슬며시 내려옴)
-          setTimeout(() => {
-            mobileMenu.style.top = "0";
-            menuList.querySelectorAll("div").forEach((li) => {
-              li.style.opacity = "1";
-              li.style.transform = "translateY(0)";
-            });
-          }, 10);
-        }
 
         // 섹션 제목 애니메이션 처리
         $(".section-heading").each(function () {
@@ -811,74 +618,6 @@
                   }
                 );
               }, index * 150); // 순차적으로 나타나도록 지연 적용
-            }
-          });
-
-          // 통계 아이템 애니메이션
-          $(".stat-item").each(function (index) {
-            const elementTop = $(this).offset().top;
-            const elementBottom = elementTop + $(this).outerHeight();
-            const viewportTop = $(window).scrollTop();
-            const viewportBottom = viewportTop + $(window).height() * 0.85;
-
-            if (elementBottom > viewportTop && elementTop < viewportBottom) {
-              const $item = $(this);
-              if ($item.hasClass("animated")) return;
-
-              $item.addClass("animated");
-
-              setTimeout(function () {
-                $item.animate(
-                  {
-                    opacity: 1,
-                    transform: "translateY(0)",
-                  },
-                  {
-                    duration: 800,
-                    easing: "easeOutBack",
-                    queue: false,
-                    step: function (now, fx) {
-                      if (fx.prop === "transform") {
-                        $(this).css("transform", "translateY(" + now + "px)");
-                      }
-                    },
-                  }
-                );
-
-                // 숫자 카운팅 애니메이션
-                const $number = $item.find(".stat-number");
-                const targetValue = $number.text();
-                const isPercentage = targetValue.includes("%");
-
-                let finalValue = targetValue;
-                if (isPercentage) {
-                  finalValue = parseFloat(targetValue.replace("%", ""));
-                } else if (targetValue.includes("+")) {
-                  finalValue = parseInt(
-                    targetValue.replace("+", "").replace(",", "")
-                  );
-                } else {
-                  finalValue = parseInt(targetValue.replace(",", ""));
-                }
-
-                $({ count: 0 }).animate(
-                  { count: finalValue },
-                  {
-                    duration: 2000,
-                    easing: "swing",
-                    step: function () {
-                      let current = Math.ceil(this.count);
-                      if (isPercentage) {
-                        $number.text(current + "%");
-                      } else if (targetValue.includes("+")) {
-                        $number.text(current.toLocaleString() + "+");
-                      } else {
-                        $number.text(current.toLocaleString());
-                      }
-                    },
-                  }
-                );
-              }, index * 150);
             }
           });
 
@@ -1015,6 +754,74 @@
                   }
                 );
               }, index * 200);
+            }
+          });
+
+          // 통계 아이템 애니메이션
+          $(".stat-item").each(function (index) {
+            const elementTop = $(this).offset().top;
+            const elementBottom = elementTop + $(this).outerHeight();
+            const viewportTop = $(window).scrollTop();
+            const viewportBottom = viewportTop + $(window).height() * 0.85;
+
+            if (elementBottom > viewportTop && elementTop < viewportBottom) {
+              const $item = $(this);
+              if ($item.hasClass("animated")) return;
+
+              $item.addClass("animated");
+
+              setTimeout(function () {
+                $item.animate(
+                  {
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  },
+                  {
+                    duration: 800,
+                    easing: "easeOutBack",
+                    queue: false,
+                    step: function (now, fx) {
+                      if (fx.prop === "transform") {
+                        $(this).css("transform", "translateY(" + now + "px)");
+                      }
+                    },
+                  }
+                );
+
+                // 숫자 카운팅 애니메이션
+                const $number = $item.find(".stat-number");
+                const targetValue = $number.text();
+                const isPercentage = targetValue.includes("%");
+
+                let finalValue = targetValue;
+                if (isPercentage) {
+                  finalValue = parseFloat(targetValue.replace("%", ""));
+                } else if (targetValue.includes("+")) {
+                  finalValue = parseInt(
+                    targetValue.replace("+", "").replace(",", "")
+                  );
+                } else {
+                  finalValue = parseInt(targetValue.replace(",", ""));
+                }
+
+                $({ count: 0 }).animate(
+                  { count: finalValue },
+                  {
+                    duration: 2000,
+                    easing: "swing",
+                    step: function () {
+                      let current = Math.ceil(this.count);
+                      if (isPercentage) {
+                        $number.text(current + "%");
+                      } else if (targetValue.includes("+")) {
+                        $number.text(current.toLocaleString() + "+");
+                      } else {
+                        $number.text(current.toLocaleString());
+                      }
+                    },
+                  }
+                );
+              }, index * 150);
             }
           });
 

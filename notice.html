@@ -6,6 +6,7 @@
     <title>공지사항 - 칠빵대리운전</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/notice.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
@@ -246,18 +247,9 @@
         </li>
       </ul>
     </footer>
-
+    <script src="js/common.js"></script>
     <script>
       $(document).ready(function () {
-        // 디바이스 확인 함수
-        function isTablet() {
-          return window.innerWidth >= 768 && window.innerWidth <= 1023;
-        }
-
-        function isMobile() {
-          return window.innerWidth < 768;
-        }
-
         // 부드러운 스크롤 효과
         $('a[href^="#"]').on("click", function (e) {
           e.preventDefault();
@@ -280,196 +272,6 @@
           console.error("⚠️ '.fa-bars' 아이콘을 찾을 수 없음!");
           return;
         }
-
-        // 모바일에서만 햄버거 메뉴 작동하도록 수정
-        menuIcon.addEventListener("click", function () {
-          // 태블릿이면 메뉴 표시하지 않음
-          if (isTablet()) {
-            return;
-          }
-
-          // 기존 모바일 메뉴 삭제 (중복 생성 방지)
-          const existingMenu = document.querySelector(".mobile-menu");
-          if (existingMenu) {
-            existingMenu.remove();
-          }
-
-          // 새로운 모바일 메뉴 생성
-          const mobileMenu = document.createElement("div");
-          mobileMenu.className = "mobile-menu";
-
-          // 모바일에서만 메뉴 표시 - 높이를 자동(auto)으로 설정하여 콘텐츠에 맞게 조절
-          Object.assign(mobileMenu.style, {
-            position: "fixed",
-            top: "-100%", // 처음에는 화면 위로 숨겨둠
-            left: "0",
-            width: "100%",
-            height: "auto", // 자동 높이 설정 - 콘텐츠에 맞게 조절됨
-            minHeight: "200px", // 최소 높이 설정
-            maxHeight: "90vh", // 최대 높이는 화면의 90%로 제한
-            overflowX: "hidden", // 가로 스크롤 방지
-            backgroundColor: "white",
-            zIndex: "1000",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            padding: "20px 0", // 상하 패딩 추가
-            boxSizing: "border-box",
-            transition: "top 0.5s ease-in-out",
-            boxShadow: "rgba(0, 0, 0, 0.15) 0px 10px 30px",
-            borderRadius: "0 0 15px 15px", // 하단 모서리 둥글게 설정
-            overflowY: "auto", // 내용이 넘칠 경우 스크롤 가능하도록 설정
-          });
-
-          // 로고 및 전화번호 추가 (상단)
-          const topSection = document.createElement("div");
-          Object.assign(topSection.style, {
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start", // 왼쪽 정렬로 변경
-            padding: "10px 20px",
-            marginBottom: "15px", // 하단 여백 추가
-            position: "relative", // 상대적 위치 설정 추가
-          });
-
-          // 로고
-          const logo = document.createElement("a");
-          logo.href = "index.html";
-          const logoImg = document.createElement("img");
-          logoImg.src = "img/logo_color.png";
-          logoImg.alt = "칠빵대리운전 로고";
-          logoImg.style.height = "40px";
-          logo.style.display = "flex";
-          logo.style.alignItems = "center";
-          logo.appendChild(logoImg);
-
-          // 전화번호
-          const phoneNumber = document.createElement("div");
-          phoneNumber.textContent = "7777-0000"; // 전화번호
-          Object.assign(phoneNumber.style, {
-            fontSize: "16px",
-            fontWeight: "900",
-            color: "#006eff",
-            position: "absolute", // 원래 위치로 복원
-            top: "20px",
-            right: "25vw",
-          });
-
-          topSection.appendChild(logo);
-          topSection.appendChild(phoneNumber);
-
-          // 메뉴 리스트 생성
-          const menuList = document.createElement("ul");
-          Object.assign(menuList.style, {
-            listStyle: "none",
-            padding: "0",
-            margin: "10px 0",
-            width: "100%",
-          });
-
-          // 모바일 메뉴 아이템을 헤더의 메뉴와 일치시키고 페이지 연결
-          const menuItems = [
-            { name: "Home", url: "index.html" },
-            { name: "About", url: "about.html" },
-            { name: "Notice", url: "notice.html" },
-            { name: "Customer Service", url: "service.html" },
-          ];
-
-          menuItems.forEach((item, index) => {
-            const li = document.createElement("li");
-
-            Object.assign(li.style, {
-              margin: "15px 0",
-              fontSize: "20px",
-              fontWeight: "bold",
-              color: "#333",
-              paddingLeft: "20px",
-              opacity: "0",
-              transform: "translateY(-20px)", // 애니메이션을 위한 초기 상태
-              transition: `opacity 0.5s ease-in-out ${
-                index * 0.1 + 0.3
-              }s, transform 0.5s ease-in-out ${index * 0.1 + 0.3}s`,
-            });
-
-            const link = document.createElement("a");
-            Object.assign(link.style, {
-              textDecoration: "none",
-              color: "#333",
-              display: "block",
-              padding: "10px 0", // 버튼 영역 확장 (더 크게)
-              width: "100%", // 전체 너비 사용
-              transition: "color 0.2s ease-in-out",
-            });
-
-            link.textContent = item.name;
-            link.href = item.url;
-
-            // 호버 효과
-            link.addEventListener("mouseover", () => {
-              link.style.color = "#006eff";
-            });
-            link.addEventListener("mouseleave", () => {
-              link.style.color = "#333";
-            });
-
-            li.appendChild(link);
-            menuList.appendChild(li);
-          });
-
-          // 닫기 버튼
-          const closeButton = document.createElement("div");
-          closeButton.innerHTML = '<i class="fa-solid fa-times"></i>';
-          Object.assign(closeButton.style, {
-            position: "absolute",
-            top: "20px",
-            right: "20px",
-            fontSize: "30px",
-            color: "#333",
-            cursor: "pointer",
-            transition: "transform 0.3s ease-in-out, color 0.3s ease-in-out",
-          });
-
-          closeButton.addEventListener("mouseover", () => {
-            closeButton.style.transform = "rotate(180deg)";
-            closeButton.style.color = "#006eff";
-          });
-          closeButton.addEventListener("mouseleave", () => {
-            closeButton.style.transform = "rotate(0deg)";
-            closeButton.style.color = "#333";
-          });
-
-          closeButton.addEventListener("click", function () {
-            mobileMenu.style.top = "-100%"; // 위로 올라가면서 사라짐
-            setTimeout(() => mobileMenu.remove(), 500);
-          });
-
-          // 요소 추가
-          mobileMenu.appendChild(topSection); // 상단 로고 + 전화번호
-          mobileMenu.appendChild(menuList); // 메뉴 리스트
-          mobileMenu.appendChild(closeButton); // 닫기 버튼
-          document.body.appendChild(mobileMenu);
-
-          // 애니메이션 효과 적용 (메뉴 슬며시 내려옴)
-          setTimeout(() => {
-            mobileMenu.style.top = "0";
-            menuList.querySelectorAll("li").forEach((li) => {
-              li.style.opacity = "1";
-              li.style.transform = "translateY(0)";
-            });
-          }, 10);
-        });
-
-        // 화면 크기 변경 감지
-        $(window).on("resize", function () {
-          // 태블릿 사이즈로 변경되면 모바일 메뉴 제거
-          if (isTablet()) {
-            const mobileMenu = document.querySelector(".mobile-menu");
-            if (mobileMenu) {
-              mobileMenu.remove();
-            }
-          }
-        });
 
         // FAQ 토글 기능
         $(".cs-faq-question").on("click", function () {
