@@ -378,6 +378,7 @@ header i:hover {
 /* 푸터 스타일 */
 @media (min-width: 1024px) {
   /*footer*/
+
   footer {
     color: #fff;
     padding: 3vw;
@@ -395,13 +396,13 @@ header i:hover {
     margin-bottom: 2vw;
     border-bottom: 2px solid #006eff;
     display: flex;
-    gap: 5vw;
+    gap: 4vw;
     justify-content: center;
   }
 
   .fotSub h5 {
     font-size: 1vw;
-    margin-bottom: 2vw;
+    margin-bottom: 1vw;
   }
 
   .fotSub p {
@@ -413,9 +414,10 @@ header i:hover {
   }
 
   .fotSub2 {
+    gap: 3vw;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .fotSub2 h3 {
@@ -424,7 +426,7 @@ header i:hover {
   }
 
   .fotSub2 li:nth-child(1) p {
-    font-size: 0.8vw;
+    font-size: 0.65vw;
   }
 
   .fotSub2 li:nth-child(2) {
