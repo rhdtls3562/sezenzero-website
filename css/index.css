@@ -135,7 +135,7 @@ header i:hover {
 
   /* con2 */
   .con2 {
-    padding: 4vw;
+    padding: 7vw;
     box-sizing: border-box;
     letter-spacing: -1px;
     display: flex;
@@ -160,17 +160,16 @@ header i:hover {
     height: 100%; /* 높이 추가 */
   }
 
+  .con2Sub > li:nth-child(1) {
+    margin-left: -5vw;
+  }
+
   .con2Sub > li:nth-child(2) {
     display: flex;
     flex-direction: column;
     justify-content: center; /* 세로 중앙 정렬 */
     height: 100%;
     align-items: flex-end; /* 오른쪽 정렬 */
-  }
-
-  .con2Sub > li:nth-child(1) {
-    padding-right: 5vw;
-    box-sizing: border-box;
   }
 
   /* 제목 스타일 */
@@ -701,6 +700,9 @@ html {
 
 /* 반응형 디자인 - 태블릿 (768px ~ 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
+  html {
+    letter-spacing: -1px;
+  }
   /* 헤더 */
   header {
     padding: 3vw 4vw;
@@ -1043,7 +1045,6 @@ html {
     margin-top: 10vw;
     width: 45vw; /* 이미지 크기 조정 */
     max-width: 320px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 35px; /* 그림자 강화 */
   }
 
   .con4 h2 {
@@ -1657,7 +1658,6 @@ html {
     width: 50vw;
     margin: 0 auto 3vw auto; /* 하단 마진 추가 */
     display: block;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 35px; /* 그림자 강화 */
   }
 
   .con4 h5 {
